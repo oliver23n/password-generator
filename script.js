@@ -37,13 +37,16 @@ function getLength() {
 }
 // function to get char types and validate 
 function charTypes(){
+
+let valid = true;
+while (valid) {
   //lowercase
-  let lower = prompt("Do you want lowercase?");
-  if (lower === null) {
-    lowerValid = false;
-  } else {
-    lowerValid = true;
-  }
+    let lower = prompt("Do you want lowercase?");
+      if (lower === null) {
+      lowerValid = false;
+      } else {
+      lowerValid = true;
+      }
   //uppercase
   let uper = prompt("Do you want uppercase");
   if (uper === null) {
@@ -65,7 +68,15 @@ function charTypes(){
   } else {
     specialValid = true;
   }
-
+  //check if meets criteria
+   if ((lowerValid || uperValid)
+      || (numberValid || specialValid)) {
+      valid = false;
+    } else {
+      alert("Doesn't meet criteria. At least one character type must be included");
+    }
+}
+return;
 }
 
 //generate password function
@@ -76,10 +87,13 @@ function writePassword() {
   // var passwordText = document.querySelector("#password");
 
   let passLength = getLength();
-
-  // passwordText.value = password;
-
+  console.log(passLength);
+  if (passLength !== null) {
+    charTypes();
+    console.log(lowerValid, uperValid, numberValid, specialValid);
+  }
 }
+  // passwordText.value = password;
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
