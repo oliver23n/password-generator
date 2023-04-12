@@ -20,6 +20,20 @@ var generateBtn = document.querySelector("#generate");
 // get password Length function
 
 // get char types function
+function getLength(){
+  validLength = false;
+  while (!validLength) {
+    let len = prompt("Enter length between 8 and 128");
+    if (Number(len) > 8 && Number(len) < 128) {
+      validLength = true;
+      return len;
+    } else if (len === null) {
+      alert("ok seeya");
+      return len;
+    }
+  }
+}
+
   //lowercase
   //uppercase
   //number
@@ -29,10 +43,12 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  // var password = generatePassword();
+  // var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  let passLength = getLength();
+  console.log(passLength);
+  // passwordText.value = password;
 
 }
 
