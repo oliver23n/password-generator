@@ -17,6 +17,7 @@
 
 var generateBtn = document.querySelector("#generate");
 let lowerValid;
+let uperValid;
 // get password Length function
 function getLength() {
   validLength = false;
@@ -40,11 +41,18 @@ function charTypes(){
   } else {
     lowerValid = true;
   }
+  //uppercase
+  let uper = prompt("Do you want uppercase");
+  if (uper === null) {
+    uperValid = false;
+  } else {
+    uperValid = true;
+  }
+  //number
+  
+  //special char
 
 }
-  //uppercase
-  //number
-  //special char
 
 //generate password function
 
