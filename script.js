@@ -18,6 +18,8 @@
 var generateBtn = document.querySelector("#generate");
 let lowerValid;
 let uperValid;
+let numberValid;
+
 // get password Length function
 function getLength() {
   validLength = false;
@@ -49,7 +51,12 @@ function charTypes(){
     uperValid = true;
   }
   //number
-  
+  let numeric = prompt("Do you want to include numbers");
+  if (numeric === null) {
+    numberValid = false;
+  } else {
+    numberValid = true;
+  }
   //special char
 
 }
