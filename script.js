@@ -16,11 +16,9 @@
 // THEN the password is either displayed in an alert or written to the page
 
 var generateBtn = document.querySelector("#generate");
-
+let lowerValid;
 // get password Length function
-
-// get char types function
-function getLength(){
+function getLength() {
   validLength = false;
   while (!validLength) {
     let len = prompt("Enter length between 8 and 128");
@@ -33,8 +31,17 @@ function getLength(){
     }
   }
 }
-
+// function to get char types and validate 
+function charTypes(){
   //lowercase
+  let lower = prompt("Do you want lowercase?");
+  if (lower === null) {
+    lowerValid = false;
+  } else {
+    lowerValid = true;
+  }
+
+}
   //uppercase
   //number
   //special char
