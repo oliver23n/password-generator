@@ -19,6 +19,7 @@ var generateBtn = document.querySelector("#generate");
 let lowerValid;
 let uperValid;
 let numberValid;
+let specialValid;
 
 // get password Length function
 function getLength() {
@@ -58,6 +59,12 @@ function charTypes(){
     numberValid = true;
   }
   //special char
+  let spec = prompt("Do you want to include special char");
+  if (spec === null) {
+    specialValid = false;
+  } else {
+    specialValid = true;
+  }
 
 }
 
@@ -69,7 +76,7 @@ function writePassword() {
   // var passwordText = document.querySelector("#password");
 
   let passLength = getLength();
-  console.log(passLength);
+
   // passwordText.value = password;
 
 }
