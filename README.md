@@ -5,7 +5,7 @@
 The app provides a randomly generated password that meets certain criteria when the button is clicked.
 The criteria is set by the user, after answering a seires of prompts like:
 * The length of the password ( between 8 and 128 characters );
-* Wether to use or not Uppercase, Lowercase , Numbers, or Special Characters ( must choose at least one type );
+* Whether to use or not Uppercase, Lowercase , Numbers, or Special Characters ( must choose at least one type );
 
 After answering the prompts the generated password is displayed in the box.
 
@@ -15,7 +15,8 @@ After answering the prompts the generated password is displayed in the box.
 N/A
 
 ## Usage
-Link to the deployed app: 
+Link to the deployed app: https://oliver23n.github.io/password-generator/
+
 
 ![Screenshot preview of app](./Assets/03-javascript-homework-demo.png)
 
