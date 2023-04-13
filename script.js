@@ -80,6 +80,48 @@ return;
 }
 
 //generate password function
+function generatePassword(passwordLength,lowercase,upercase,num,specChar){
+  // output
+  let output = "";
+  //object library 1:string 2:use/not
+  const lib = [ 
+    {
+      str: 'abcdefghijklmnopqrstuvwxyz',
+      use: lowercase
+    },
+    {
+      str: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+      use: upercase
+    },
+    {
+      str:"0123456789",
+      use: num
+    },
+    {
+      str: `!@#$%^&*()_+-=?{}~,. `,
+      use: specChar
+    }
+  ];
+  // let lowers = "abcdefghijklmnopqrstuvwxyz";
+  // let uppers = lowers.toUpperCase();
+  // let nums = '0123456789';
+  // let specials=` !@#$%^&*()_+-=?{}~,. `;
+
+
+  //condition which libraries to use
+    //combine if there are more than 1
+    let currentLib ='';
+    for(let i = 0; i<lib.length; i++){
+      let current = lib[i];
+      if(current.use === true){
+        currentLib+=current.str;
+      }
+    }
+    console.log(currentLib);
+    
+
+  //
+}
 
 // Write password to the #password input
 function writePassword() {
@@ -92,6 +134,7 @@ function writePassword() {
     charTypes();
     console.log(lowerValid, uperValid, numberValid, specialValid);
   }
+  generatePassword(passLength,lowerValid,uperValid,numberValid,specialValid);
 }
   // passwordText.value = password;
 
