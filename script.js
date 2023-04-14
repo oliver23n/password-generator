@@ -3,6 +3,7 @@ let lowerValid;
 let uperValid;
 let numberValid;
 let specialValid;
+let unfinishedPass;
 
 // get password Length function
 function getLength() {
@@ -27,7 +28,11 @@ function charTypes() {
     //lowercase
 
     lowerValid = confirm("Do you want to include lowercase characters?");
+    if(lowerValid){
+      //generate random char from the coresponding lib
 
+      //store it 
+    }
     //uppercase
 
     uperValid = confirm("Do you want to include uppercase characters?");
@@ -83,12 +88,18 @@ function generatePassword(passwordLength, lowercase, upercase, num, specChar) {
   }
   console.log(currentLib);
   //generate random string from the current library
-  let random = "";
+  let pass = "";
   for (let j = 0; j < passwordLength; j++) {
-    random += currentLib.charAt(Math.floor(Math.random() * currentLib.length));
-  }
-  console.log(random);
+    pass+=genRandom(currentLib); 
+   }
+  console.log(pass);
 
+  return pass;
+}
+
+//generate random from a list
+function genRandom(list){
+  const random = list.charAt(Math.floor(Math.random()*list.length));
   return random;
 }
 
