@@ -7,6 +7,7 @@ let specialValid;
 // get password Length function
 function getLength() {
   validLength = false;
+
   while (!validLength) {
     let len = prompt("Enter length between 8 and 128");
     if (Number(len) >= 8 && Number(len) <= 128) {
@@ -24,34 +25,20 @@ function charTypes() {
   let valid = true;
   while (valid) {
     //lowercase
-    let lower = prompt("Do you want lowercase?");
-    if (lower === null) {
-      lowerValid = false;
-    } else {
-      lowerValid = true;
-    }
+
+    lowerValid = confirm("Do you want to include lowercase characters?");
+
     //uppercase
-    let uper = prompt("Do you want uppercase");
-    if (uper === null) {
-      uperValid = false;
-    } else {
-      uperValid = true;
-    }
-    //number
-    let numeric = prompt("Do you want to include numbers");
-    if (numeric === null) {
-      numberValid = false;
-    } else {
-      numberValid = true;
-    }
+
+    uperValid = confirm("Do you want to include uppercase characters?");
+
+    //numbers
+    numberValid = confirm("Do you want to include numbers");
+
     //special char
-    let spec = prompt("Do you want to include special char");
-    if (spec === null) {
-      specialValid = false;
-    } else {
-      specialValid = true;
-    }
-    //check if meets criteria
+    specialValid = confirm("Do you want to include special characters?");
+
+    //check if uses at least one character type
     if ((lowerValid || uperValid)
       || (numberValid || specialValid)) {
       valid = false;
