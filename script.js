@@ -1,9 +1,10 @@
 let generateBtn = document.querySelector("#generate");
-let lowerValid;
-let uperValid;
-let numberValid;
-let specialValid;
-let unfinishedPass;
+let unfinishedPass="";
+let charSet="";
+const lower = 'abcdefghijklmnopqrstuvwxyz';
+const uper = lower.toUpperCase();
+const nums = "0123456789";
+const specialChars = `!@#$%^&*()_+-=?{}~,.`;
 
 // get password Length function
 function getLength() {
@@ -20,6 +21,10 @@ function getLength() {
     }
   }
 }
+function genRandom(list) {
+  let random = list.charAt(Math.floor(Math.random() * list.length));
+  return random;
+}
 // function to get char types and validate 
 function charTypes() {
 
@@ -27,21 +32,51 @@ function charTypes() {
   while (valid) {
     //lowercase
 
-    lowerValid = confirm("Do you want to include lowercase characters?");
+    let lowerValid = confirm("Do you want to include lowercase characters?");
     if(lowerValid){
       //generate random char from the coresponding lib
-
       //store it 
+        unfinishedPass+=genRandom(lower);
+        //update charSet
+        charSet+=lower;
+        console.log(unfinishedPass);
+        console.log(charSet);
     }
     //uppercase
 
-    uperValid = confirm("Do you want to include uppercase characters?");
+    let uperValid = confirm("Do you want to include uppercase characters?");
+    if (uperValid) {
+      //generate random char from the coresponding lib
+      //store it 
+      unfinishedPass += genRandom(uper);
+      //update charSet
+      charSet += uper;
+      console.log(unfinishedPass);
+      console.log(charSet);
+    }
 
     //numbers
-    numberValid = confirm("Do you want to include numbers");
-
+    let numberValid = confirm("Do you want to include numbers");
+    if (lowerValid) {
+      //generate random char from the coresponding lib
+      //store it 
+      unfinishedPass += genRandom(nums);
+      //update charSet
+      charSet += nums;
+      console.log(unfinishedPass);
+      console.log(charSet);
+    }
     //special char
-    specialValid = confirm("Do you want to include special characters?");
+    let specialValid = confirm("Do you want to include special characters?");
+    if (lowerValid) {
+      //generate random char from the coresponding lib
+      //store it 
+      unfinishedPass += genRandom(specialChars);
+      //update charSet
+      charSet += specialChars;
+      console.log(unfinishedPass);
+      console.log(charSet);
+    }
 
     //check if uses at least one character type
     if ((lowerValid || uperValid)
@@ -55,52 +90,15 @@ function charTypes() {
 }
 
 //generate password function
-function generatePassword(passwordLength, lowercase, upercase, num, specChar) {
+function generatePassword(passwordLength,characters) {
+  let newpass= unfinishedPass;
 
-  //object library 1:string 2:use/not
-  const lib = [
-    {
-      str: 'abcdefghijklmnopqrstuvwxyz',
-      use: lowercase
-    },
-    {
-      str: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-      use: upercase
-    },
-    {
-      str: "0123456789",
-      use: num
-    },
-    {
-      str: `!@#$%^&*()_+-=?{}~,.`,
-      use: specChar
-    }
-  ];
-
-  //combine if there are more  libraries to use
-  let currentLib = '';
-  for (let i = 0; i < lib.length; i++) {
-    let current = lib[i];
-    //condition which libraries to use
-    if (current.use === true) {
-      currentLib += current.str;
-    }
+  for (let i = unfinishedPass.length; i < passwordLength; i++) {
+    newpass += genRandom(characters);
   }
-  console.log(currentLib);
-  //generate random string from the current library
-  let pass = "";
-  for (let j = 0; j < passwordLength; j++) {
-    pass+=genRandom(currentLib); 
-   }
-  console.log(pass);
+  console.log(unfinishedPass);
 
-  return pass;
-}
-
-//generate random from a list
-function genRandom(list){
-  const random = list.charAt(Math.floor(Math.random()*list.length));
-  return random;
+  return newpass;
 }
 
 // Write password to the #password input
@@ -111,9 +109,9 @@ function writePassword() {
   console.log(passLength);
   if (passLength !== null) {
     charTypes();
-    console.log(lowerValid, uperValid, numberValid, specialValid);
   }
-  let password = generatePassword(passLength, lowerValid, uperValid, numberValid, specialValid);
+  let password = generatePassword(passLength, charSet);
+  console.log(password);
 
 
   passwordText.value = password;
