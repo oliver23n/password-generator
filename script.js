@@ -1,4 +1,5 @@
 let generateBtn = document.querySelector("#generate");
+let copyBtn = document.querySelector('#copy');
 let unfinishedPass = "";
 let charSet = "";
 const lower = 'abcdefghijklmnopqrstuvwxyz';
@@ -100,4 +101,5 @@ function copyPass(){
   }
 }
 generateBtn.addEventListener("click", writePassword);
+copyBtn.addEventListener("click",copyPass);
 
