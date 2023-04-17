@@ -1,5 +1,4 @@
 let generateBtn = document.querySelector("#generate");
-var copyText = document.getElementById("#password");
 let unfinishedPass = "";
 let charSet = "";
 const lower = 'abcdefghijklmnopqrstuvwxyz';
