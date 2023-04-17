@@ -44,13 +44,13 @@ function charTypes() {
     }
 
     let numberValid = confirm("Do you want to include numbers");
-    if (lowerValid) {
+    if (numberValid) {
       unfinishedPass += genRandom(nums);
       charSet += nums;
     }
 
     let specialValid = confirm("Do you want to include special characters?");
-    if (lowerValid) {
+    if (specialValid) {
       unfinishedPass += genRandom(specialChars);
       charSet += specialChars;
     }
@@ -73,6 +73,7 @@ function generatePassword(passwordLength, characters) {
 }
 
 function writePassword() {
+  unfinishedPass ='';
   var passwordText = document.querySelector("#password");
   let passLength = getLength();
   if (passLength !== null) {
